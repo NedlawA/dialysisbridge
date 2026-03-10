@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { Play, Pause } from "lucide-react"; // optional icons
+import { playExclusive } from "@/data/audioController";
 
 export default function AudioPlayer({ src }: { src: string }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -12,10 +13,15 @@ export default function AudioPlayer({ src }: { src: string }) {
     if (isPlaying) {
       audio.pause();
       setIsPlaying(false);
-    } else {
-      audio.play().catch((err) => console.error("Audio play error:", err));
-      setIsPlaying(true);
+      return;
     }
+
+    // Ensure only one audio plays at a time
+    playExclusive(audio);
+
+    audio.play().then(() => {
+      setIsPlaying(true);
+    }).catch((err) => console.error("Audio play error:", err));
   };
 
   return (

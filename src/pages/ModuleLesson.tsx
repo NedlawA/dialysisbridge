@@ -14,7 +14,9 @@ import { readingContent, fillInTheBlanks, vocabularyPairs, comprehensionQuestion
 import { module2ReadingContent, module2FillInTheBlanks, module2VocabularyPairs, module2ComprehensionQuestions } from "@/data/module2Content";
 
 const moduleData: Record<number, {
-  reading: { sections: { heading: string; content: string }[] };
+  reading: {
+    module: "module1" | "module2"; sections: { heading: string; content: string }[] 
+};
   fillBlanks: any[];
   vocab: any[];
   quiz: any[];
@@ -35,7 +37,7 @@ const tabs = [
 const ModuleLesson = () => {
   const { id } = useParams();
   const moduleId = Number(id);
-  const [activeTab, setActiveTab] = useState("reading");
+  const [activeTab, setActiveTab] = useState("vocab");
   const currentIdx = tabs.findIndex((t) => t.id === activeTab);
 
   const module = modules.find((m) => m.id === moduleId);
@@ -82,7 +84,7 @@ const ModuleLesson = () => {
     transition={{ duration: 0.2 }}
   >
     {activeTab === "vocab" && <VocabMatching pairs={data.vocab} />}
-    {activeTab === "reading" && <ReadingSection sections={data.reading.sections} />}
+    {activeTab === "reading" && <ReadingSection sections={data.reading.sections} module={data.reading.module}/>}
     {activeTab === "fill" && <FillInTheBlank questions={data.fillBlanks} />}
     {activeTab === "quiz" && <ComprehensionQuiz questions={data.quiz} />}
     {activeTab === "resources" && <Resources resources={data.resources ?? []} />}

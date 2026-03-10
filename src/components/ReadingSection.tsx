@@ -6,59 +6,69 @@ interface Section {
   content: string;
 }
 
-const audioMap: Record<number, string> = {
-  0: "/audio/module1-1.mp3",
-  1: "/audio/module1-2.mp3",
-  2: "/audio/module1-3.mp3",
+const audioMap = {
+  module1: ["/audio/module1-1.mp3", "/audio/module1-2.mp3", "/audio/module1-3.mp3"],
+  module2: ["/audio/module2-1.mp3"],
 };
 
-const ReadingSection = ({ sections }: { sections: Section[] }) => {
+
+const ReadingSection = ({
+  sections,
+  module, // NEW
+}: {
+  sections: Section[];
+  module: keyof typeof audioMap; // NEW
+}) => {
   return (
     <div className="space-y-8">
-      {sections.map((section, i) => (
-        <motion.div
-          key={i}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: i * 0.1 }}
-          viewport={{ once: true }}
-          className="space-y-3"
-        >
-          {/* Heading + Audio Button */}
-          <div className="flex items-center
-            gap-4">
-            <h3 className="font-display font-semibold text-xl text-foreground">
-              {section.heading}
-            </h3>
+      {sections.map((section, i) => {
+        const audioSrc = audioMap[module]?.[i]; // NEW
 
-            <AudioPlayer src={audioMap[i]} />
-          </div>
+        return (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.1 }}
+            viewport={{ once: true }}
+            className="space-y-3"
+          >
+            {/* Heading + optional audio button */}
+            <div className="flex items-center gap-4">
+              <h3 className="font-display font-semibold text-xl text-foreground">
+                {section.heading}
+              </h3>
 
-          {/* Content */}
-          <div className="prose prose-sm max-w-none text-foreground/80 leading-relaxed">
-            {section.content.split("\n").map((paragraph, j) => {
-              if (!paragraph.trim()) return null;
+              {/* Only show play button if audio exists */}
+              {audioSrc && <AudioPlayer src={audioSrc} />}
+            </div>
 
-              const formatted = paragraph.replace(
-                /\*\*(.*?)\*\*/g,
-                '<strong class="text-foreground font-semibold">$1</strong>'
-              );
+            {/* Content */}
+            <div className="prose prose-sm max-w-none text-foreground/80 leading-relaxed">
+              {section.content.split("\n").map((paragraph, j) => {
+                if (!paragraph.trim()) return null;
 
-              if (paragraph.trim().startsWith("•")) {
-                return (
-                  <div key={j} className="flex gap-2 ml-2 my-1">
-                    <span dangerouslySetInnerHTML={{ __html: formatted }} />
-                  </div>
+                const formatted = paragraph.replace(
+                  /\*\*(.*?)\*\*/g,
+                  '<strong class="text-foreground font-semibold">$1</strong>'
                 );
-              }
 
-              return (
-                <p key={j} dangerouslySetInnerHTML={{ __html: formatted }} />
-              );
-            })}
-          </div>
-        </motion.div>
-      ))}
+                if (paragraph.trim().startsWith("•")) {
+                  return (
+                    <div key={j} className="flex gap-2 ml-2 my-1">
+                      <span dangerouslySetInnerHTML={{ __html: formatted }} />
+                    </div>
+                  );
+                }
+
+                return (
+                  <p key={j} dangerouslySetInnerHTML={{ __html: formatted }} />
+                );
+              })}
+            </div>
+          </motion.div>
+        );
+      })}
     </div>
   );
 };

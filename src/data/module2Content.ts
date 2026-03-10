@@ -53,6 +53,7 @@ export const module2ReadingContent = {
 Being able to analyze, identify, and differentiate between these text types—and to recognize their unique features and structures—is fundamental to performing your job safely and effectively.`,
     },
   ],
+  module: "module2",
 };
 
 export const module2FillInTheBlanks = [
