@@ -40,8 +40,8 @@ const Index = () => {
               Adult Basic Education — Dialysis Bridge Program
             </div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold text-navy-foreground leading-tight mb-5">
-              Your Path to Becoming a{" "}
-              <span className="gradient-text">Dialysis Bridge</span>
+              Your Bridge to Becoming a{" "}
+              <span className="gradient-text">Dialysis Technician</span>
             </h1>
             <p className="text-lg text-navy-foreground/70 leading-relaxed mb-8 max-w-xl">
               Master kidney anatomy, patient care, and critical thinking through interactive lessons designed for aspiring healthcare professionals.
