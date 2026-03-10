@@ -23,9 +23,9 @@ const moduleData: Record<number, {
 };
 
 const tabs = [
+  { id: "vocab", label: "Vocab Matching", icon: Library },
   { id: "reading", label: "Reading", icon: BookOpen },
   { id: "fill", label: "Fill-in-the-Blank", icon: Puzzle },
-  { id: "vocab", label: "Vocab Matching", icon: Library },
   { id: "quiz", label: "Comprehension Quiz", icon: ClipboardCheck },
 ];
 
@@ -72,9 +72,9 @@ const ModuleLesson = () => {
         <div className="glass-card p-6 md:p-8">
           <AnimatePresence mode="wait">
             <motion.div key={`${moduleId}-${activeTab}`} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.2 }}>
+              {activeTab === "vocab" && <VocabMatching pairs={data.vocab} />}
               {activeTab === "reading" && <ReadingSection sections={data.reading.sections} />}
               {activeTab === "fill" && <FillInTheBlank questions={data.fillBlanks} />}
-              {activeTab === "vocab" && <VocabMatching pairs={data.vocab} />}
               {activeTab === "quiz" && <ComprehensionQuiz questions={data.quiz} />}
             </motion.div>
           </AnimatePresence>
