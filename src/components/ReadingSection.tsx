@@ -1,38 +1,18 @@
 import { motion } from "framer-motion";
-import { Keyword } from "@/components/Keyword";
+import AudioPlayer from "./AudioPlayer";
 
 interface Section {
   heading: string;
   content: string;
 }
 
-interface ReadingSectionProps {
-  sections: Section[];
-  keywords?: string[]; // pass your keyword list
-}
+const audioMap: Record<number, string> = {
+  0: "/audio/module1-1.mp3",
+  1: "/audio/module1-2.mp3",
+  2: "/audio/module1-3.mp3",
+};
 
-const ReadingSection = ({ sections, keywords = [] }: ReadingSectionProps) => {
-  // Converts **word** into <Keyword /> ONLY if it's in the keywords list
-  const renderWithKeywords = (text: string) => {
-    const parts = text.split(/(\*\*.*?\*\*)/g);
-
-    return parts.map((part, i) => {
-      if (part.startsWith("**") && part.endsWith("**")) {
-        const word = part.replace(/\*\*/g, "").trim();
-
-        // Only convert to TTS if it's in the keyword list
-        if (keywords.includes(word.toLowerCase())) {
-          return <Keyword key={i} word={word} />;
-        }
-
-        // Otherwise render as normal bold text
-        return <strong key={i}>{word}</strong>;
-      }
-
-      return <span key={i}>{part}</span>;
-    });
-  };
-
+const ReadingSection = ({ sections }: { sections: Section[] }) => {
   return (
     <div className="space-y-8">
       {sections.map((section, i) => (
@@ -44,26 +24,36 @@ const ReadingSection = ({ sections, keywords = [] }: ReadingSectionProps) => {
           viewport={{ once: true }}
           className="space-y-3"
         >
-          <h3 className="font-display font-semibold text-xl text-foreground">
-            {section.heading}
-          </h3>
+          {/* Heading + Audio Button */}
+          <div className="flex items-center
+            gap-4">
+            <h3 className="font-display font-semibold text-xl text-foreground">
+              {section.heading}
+            </h3>
 
+            <AudioPlayer src={audioMap[i]} />
+          </div>
+
+          {/* Content */}
           <div className="prose prose-sm max-w-none text-foreground/80 leading-relaxed">
             {section.content.split("\n").map((paragraph, j) => {
               if (!paragraph.trim()) return null;
 
-              const isBullet = paragraph.trim().startsWith("•");
+              const formatted = paragraph.replace(
+                /\*\*(.*?)\*\*/g,
+                '<strong class="text-foreground font-semibold">$1</strong>'
+              );
+
+              if (paragraph.trim().startsWith("•")) {
+                return (
+                  <div key={j} className="flex gap-2 ml-2 my-1">
+                    <span dangerouslySetInnerHTML={{ __html: formatted }} />
+                  </div>
+                );
+              }
 
               return (
-                <div
-                  key={j}
-                  className={isBullet ? "flex gap-2 ml-2 my-1" : ""}
-                >
-                  {isBullet && <span>•</span>}
-                  <p className="inline-block">
-                    {renderWithKeywords(paragraph.replace(/^•\s*/, ""))}
-                  </p>
-                </div>
+                <p key={j} dangerouslySetInnerHTML={{ __html: formatted }} />
               );
             })}
           </div>
