@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, XCircle, RotateCcw } from "lucide-react";
 
@@ -17,6 +17,27 @@ const FillInTheBlank = ({ questions }: { questions: FIBQuestion[] }) => {
   const [answers, setAnswers] = useState<Answer>({});
   const [checked, setChecked] = useState(false);
   const [selectedWord, setSelectedWord] = useState<string | null>(null);
+
+  // ⭐ Unique storage key for THIS activity
+  const storageKey = `fib-${questions[0].id}`;
+
+  // ⭐ Load saved progress on mount
+  useEffect(() => {
+    const saved = localStorage.getItem(storageKey);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      setAnswers(parsed.answers || {});
+      setChecked(parsed.checked || false);
+    }
+  }, [storageKey]);
+
+  // ⭐ Save progress whenever answers or checked state changes
+  useEffect(() => {
+    localStorage.setItem(
+      storageKey,
+      JSON.stringify({ answers, checked })
+    );
+  }, [answers, checked, storageKey]);
 
   const allOptions = questions.flatMap((q) => q.options);
   const uniqueOptions = [...new Set(allOptions)].sort(() => Math.random() - 0.5);
@@ -66,6 +87,9 @@ const FillInTheBlank = ({ questions }: { questions: FIBQuestion[] }) => {
 
   return (
     <div className="space-y-6">
+      <p className="text-sm text-muted-foreground">
+        Click a term from the word bank, then click its matching blank.
+      </p>
       {/* Word bank */}
       <div className="flex flex-wrap gap-2 p-4 bg-muted/50 rounded-xl mb-6">
         {uniqueOptions.map((word) => {
@@ -95,6 +119,7 @@ const FillInTheBlank = ({ questions }: { questions: FIBQuestion[] }) => {
           const answer = answers[q.id];
 
           return (
+              
             <motion.div
               key={q.id}
               initial={{ opacity: 0, x: -20 }}
