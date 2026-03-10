@@ -2,14 +2,15 @@ import { useState } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Keyword } from "@/components/Keyword";
-import { BookOpen, Puzzle, Library, ClipboardCheck, ChevronRight } from "lucide-react";
+import { BookOpen, Puzzle, Library, ClipboardCheck, ChevronRight, Album } from "lucide-react";
 import Header from "@/components/Header";
 import ReadingSection from "@/components/ReadingSection";
 import FillInTheBlank from "@/components/FillInTheBlank";
 import VocabMatching from "@/components/VocabMatching";
 import ComprehensionQuiz from "@/components/ComprehensionQuiz";
+import Resources from "@/components/Resources";
 import { modules } from "@/data/modules";
-import { readingContent, fillInTheBlanks, vocabularyPairs, comprehensionQuestions } from "@/data/module1Content";
+import { readingContent, fillInTheBlanks, vocabularyPairs, comprehensionQuestions, moduleResources } from "@/data/module1Content";
 import { module2ReadingContent, module2FillInTheBlanks, module2VocabularyPairs, module2ComprehensionQuestions } from "@/data/module2Content";
 
 const moduleData: Record<number, {
@@ -17,8 +18,9 @@ const moduleData: Record<number, {
   fillBlanks: any[];
   vocab: any[];
   quiz: any[];
+  resources?: any[];  
 }> = {
-  1: { reading: readingContent, fillBlanks: fillInTheBlanks, vocab: vocabularyPairs, quiz: comprehensionQuestions },
+  1: { reading: readingContent, fillBlanks: fillInTheBlanks, vocab: vocabularyPairs, quiz: comprehensionQuestions, resources: moduleResources[1] },
   2: { reading: module2ReadingContent, fillBlanks: module2FillInTheBlanks, vocab: module2VocabularyPairs, quiz: module2ComprehensionQuestions },
 };
 
@@ -27,6 +29,7 @@ const tabs = [
   { id: "reading", label: "Reading", icon: BookOpen },
   { id: "fill", label: "Fill-in-the-Blank", icon: Puzzle },
   { id: "quiz", label: "Comprehension Quiz", icon: ClipboardCheck },
+  { id: "resources", label: "Resources", icon: Album },
 ];
 
 const ModuleLesson = () => {
@@ -71,13 +74,20 @@ const ModuleLesson = () => {
 
         <div className="glass-card p-6 md:p-8">
           <AnimatePresence mode="wait">
-            <motion.div key={`${moduleId}-${activeTab}`} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.2 }}>
-              {activeTab === "vocab" && <VocabMatching pairs={data.vocab} />}
-              {activeTab === "reading" && <ReadingSection sections={data.reading.sections} />}
-              {activeTab === "fill" && <FillInTheBlank questions={data.fillBlanks} />}
-              {activeTab === "quiz" && <ComprehensionQuiz questions={data.quiz} />}
-            </motion.div>
-          </AnimatePresence>
+  <motion.div
+    key={`${moduleId}-${activeTab}`}
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -10 }}
+    transition={{ duration: 0.2 }}
+  >
+    {activeTab === "vocab" && <VocabMatching pairs={data.vocab} />}
+    {activeTab === "reading" && <ReadingSection sections={data.reading.sections} />}
+    {activeTab === "fill" && <FillInTheBlank questions={data.fillBlanks} />}
+    {activeTab === "quiz" && <ComprehensionQuiz questions={data.quiz} />}
+    {activeTab === "resources" && <Resources resources={data.resources ?? []} />}
+  </motion.div>
+</AnimatePresence>
         </div>
 
         {currentIdx < tabs.length - 1 && (

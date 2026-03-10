@@ -131,3 +131,18 @@ export const comprehensionQuestions = [
     explanation: "Critical thinking is essential for dialysis technicians to evaluate patient conditions, recognize complications, and make informed decisions during treatment.",
   },
 ];
+// Example resource data — adjust as needed
+export const moduleResources: Record<number, { title: string; url: string; description?: string }[]> = {
+  1: [
+    {
+      title: "Khan Academy – Kidney Function and Anatomy",
+      url: "https://youtu.be/ctGkLYuUCvU?si=_0b-DeHC9nTzMAME",
+      description: "A short video overview of kidney function and anatomy."
+    },
+    {
+      title: "Get Body Smart - Kidney Anatomy",
+      url: "https://www.getbodysmart.com/urinary-system/kidney-external-anatomy/",
+      description: "An illustrated guide to kidney anatomy and function."
+    }
+  ],
+};
