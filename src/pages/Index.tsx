@@ -120,7 +120,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t border-border py-8">
         <div className="container text-center text-sm text-muted-foreground">
-          <p>DialysisProAcademy — Adult Basic Education Dialysis Technician Program</p>
+          <p>Adult Basic Education Dialysis Bridge Course</p>
         </div>
       </footer>
     </div>

@@ -23,7 +23,7 @@ const DraggableWord = ({ word, isUsed }: { word: string; isUsed: boolean }) => {
 
   return (
     <div ref={setNodeRef} {...listeners} {...attributes} style={style}
-      className={`drag-item ${isUsed ? "opacity-30 cursor-not-allowed" : ""} ${isDragging ? "opacity-50 scale-105 z-50" : ""}`}>
+    className={`drag-item ${isUsed ? "opacity-30 cursor-not-allowed" : ""} ${isDragging ? "opacity-0" : ""}`}>
       {word}
     </div>
   );
@@ -104,7 +104,14 @@ const FillInTheBlank = ({ questions }: { questions: FIBQuestion[] }) => {
             );
           })}
         </div>
-        <DragOverlay>{activeId ? <div className="drag-item shadow-lg scale-105">{activeId}</div> : null}</DragOverlay>
+        <DragOverlay>
+  {activeId ? (
+    <div className="drag-item shadow-lg scale-105 pointer-events-none">
+      {activeId}
+    </div>
+  ) : null}
+</DragOverlay>
+
       </DndContext>
       <div className="flex items-center gap-3 pt-2">
         {!checked ? (
