@@ -84,3 +84,12 @@ const ReadingSection = ({
                   </p>
                 );
               })}
+            </div>
+          </motion.div>
+        );
+      })}
+    </div>
+  );
+};
+
+export default ReadingSection;
