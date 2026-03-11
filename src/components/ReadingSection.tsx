@@ -11,18 +11,38 @@ const audioMap = {
   module2: ["/audio/module2-1.mp3"],
 };
 
+/* ---------------------------------------
+   Helper: Convert **bold** into JSX nodes
+---------------------------------------- */
+function formatText(text: string) {
+  const parts = text.split(/(\*\*.*?\*\*)/g);
 
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={i} className="text-foreground font-semibold">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return <span key={i}>{part}</span>;
+  });
+}
+
+/* ---------------------------------------
+   Component
+---------------------------------------- */
 const ReadingSection = ({
   sections,
-  module, // NEW
+  module,
 }: {
   sections: Section[];
-  module: keyof typeof audioMap; // NEW
+  module: keyof typeof audioMap;
 }) => {
   return (
     <div className="space-y-8">
       {sections.map((section, i) => {
-        const audioSrc = audioMap[module]?.[i]; // NEW
+        const audioSrc = audioMap[module]?.[i];
 
         return (
           <motion.div
@@ -33,44 +53,34 @@ const ReadingSection = ({
             viewport={{ once: true }}
             className="space-y-3"
           >
-            {/* Heading + optional audio button */}
+            {/* Heading + optional audio */}
             <div className="flex items-center gap-4">
               <h3 className="font-display font-semibold text-xl text-foreground">
                 {section.heading}
               </h3>
 
-              {/* Only show play button if audio exists */}
               {audioSrc && <AudioPlayer src={audioSrc} />}
             </div>
 
             {/* Content */}
             <div className="prose prose-sm max-w-none text-foreground/80 leading-relaxed">
               {section.content.split("\n").map((paragraph, j) => {
-                if (!paragraph.trim()) return null;
+                const trimmed = paragraph.trim();
+                if (!trimmed) return null;
 
-                const formatted = paragraph.replace(
-                  /\*\*(.*?)\*\*/g,
-                  '<strong class="text-foreground font-semibold">$1</strong>'
-                );
-
-                if (paragraph.trim().startsWith("•")) {
+                // Bullet point
+                if (trimmed.startsWith("•")) {
                   return (
                     <div key={j} className="flex gap-2 ml-2 my-1">
-                      <span dangerouslySetInnerHTML={{ __html: formatted }} />
+                      <span>{formatText(trimmed)}</span>
                     </div>
                   );
                 }
 
+                // Normal paragraph
                 return (
-                  <p key={j} dangerouslySetInnerHTML={{ __html: formatted }} />
+                  <p key={j}>
+                    {formatText(paragraph)}
+                  </p>
                 );
               })}
-            </div>
-          </motion.div>
-        );
-      })}
-    </div>
-  );
-};
-
-export default ReadingSection;
