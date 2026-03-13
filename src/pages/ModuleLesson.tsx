@@ -10,20 +10,57 @@ import VocabMatching from "@/components/VocabMatching";
 import ComprehensionQuiz from "@/components/ComprehensionQuiz";
 import Resources from "@/components/Resources";
 import { modules } from "@/data/modules";
-import { readingContent, fillInTheBlanks, vocabularyPairs, comprehensionQuestions, moduleResources } from "@/data/module1Content";
-import { module2ReadingContent, module2FillInTheBlanks, module2VocabularyPairs, module2ComprehensionQuestions } from "@/data/module2Content";
+
+import {
+  readingContent,
+  fillInTheBlanks,
+  vocabularyPairs,
+  comprehensionQuestions,
+  moduleResources
+} from "@/data/module1Content";
+
+import {
+  module2ReadingContent,
+  module2FillInTheBlanks,
+  module2VocabularyPairs,
+  module2ComprehensionQuestions
+} from "@/data/module2Content";
+
+// ⭐ NEW: Module 3 imports
+import {
+  module3ReadingContent,
+  module3FillInTheBlanks,
+  module3VocabularyPairs,
+  module3ComprehensionQuestions
+} from "@/data/module3Content";
 
 const moduleData: Record<number, {
-  reading: {
-    module: "module1" | "module2"; sections: { heading: string; content: string }[] 
-};
+  reading: { module: string; sections: { heading: string; content: string }[] };
   fillBlanks: any[];
   vocab: any[];
   quiz: any[];
-  resources?: any[];  
+  resources?: any[];
 }> = {
-  1: { reading: readingContent, fillBlanks: fillInTheBlanks, vocab: vocabularyPairs, quiz: comprehensionQuestions, resources: moduleResources[1] },
-  2: { reading: module2ReadingContent, fillBlanks: module2FillInTheBlanks, vocab: module2VocabularyPairs, quiz: module2ComprehensionQuestions },
+  1: {
+    reading: readingContent,
+    fillBlanks: fillInTheBlanks,
+    vocab: vocabularyPairs,
+    quiz: comprehensionQuestions,
+    resources: moduleResources[1]
+  },
+  2: {
+    reading: module2ReadingContent,
+    fillBlanks: module2FillInTheBlanks,
+    vocab: module2VocabularyPairs,
+    quiz: module2ComprehensionQuestions
+  },
+  // ⭐ NEW: Module 3 added here
+  3: {
+    reading: module3ReadingContent,
+    fillBlanks: module3FillInTheBlanks,
+    vocab: module3VocabularyPairs,
+    quiz: module3ComprehensionQuestions
+  }
 };
 
 const tabs = [
@@ -43,7 +80,9 @@ const ModuleLesson = () => {
   const module = modules.find((m) => m.id === moduleId);
   const data = moduleData[moduleId];
 
-  if (!module || !data || module.status !== "available") return <Navigate to="/modules" replace />;
+  if (!module || !data || module.status !== "available") {
+    return <Navigate to="/modules" replace />;
+  }
 
   const nextTab = () => {
     if (currentIdx < tabs.length - 1) {
@@ -56,18 +95,33 @@ const ModuleLesson = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <div className="container py-8 md:py-12">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
-          <span className="text-xs font-semibold uppercase tracking-wider text-primary mb-2 block">Module {moduleId}</span>
-          <h1 className="font-display text-2xl md:text-3xl font-bold mb-2">{module.title}</h1>
-          <p className="text-muted-foreground text-sm max-w-2xl">{module.description}</p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-8"
+        >
+          <span className="text-xs font-semibold uppercase tracking-wider text-primary mb-2 block">
+            Module {moduleId}
+          </span>
+          <h1 className="font-display text-2xl md:text-3xl font-bold mb-2">
+            {module.title}
+          </h1>
+          <p className="text-muted-foreground text-sm max-w-2xl">
+            {module.description}
+          </p>
         </motion.div>
 
         <div className="flex gap-1 p-1 bg-muted rounded-xl mb-8 overflow-x-auto">
           {tabs.map((tab) => (
-            <button key={tab.id} onClick={() => setActiveTab(tab.id)}
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium whitespace-nowrap transition-all ${
-                activeTab === tab.id ? "bg-card text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"
-              }`}>
+                activeTab === tab.id
+                  ? "bg-card text-foreground shadow-sm"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
               <tab.icon className="w-4 h-4" />
               <span className="hidden sm:inline">{tab.label}</span>
             </button>
@@ -76,27 +130,45 @@ const ModuleLesson = () => {
 
         <div className="glass-card p-6 md:p-8">
           <AnimatePresence mode="wait">
-  <motion.div
-    key={`${moduleId}-${activeTab}`}
-    initial={{ opacity: 0, y: 10 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -10 }}
-    transition={{ duration: 0.2 }}
-  >
-    {activeTab === "vocab" && <VocabMatching pairs={data.vocab} />}
-    {activeTab === "reading" && <ReadingSection sections={data.reading.sections} module={data.reading.module}/>}
-    {activeTab === "fill" && <FillInTheBlank questions={data.fillBlanks} />}
-    {activeTab === "quiz" && <ComprehensionQuiz questions={data.quiz} />}
-    {activeTab === "resources" && <Resources resources={data.resources ?? []} />}
-  </motion.div>
-</AnimatePresence>
+            <motion.div
+              key={`${moduleId}-${activeTab}`}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+            >
+              {activeTab === "vocab" && <VocabMatching pairs={data.vocab} />}
+              {activeTab === "reading" && (
+                <ReadingSection
+                  sections={data.reading.sections}
+                  module={data.reading.module}
+                />
+              )}
+              {activeTab === "fill" && (
+                <FillInTheBlank questions={data.fillBlanks} />
+              )}
+              {activeTab === "quiz" && (
+                <ComprehensionQuiz questions={data.quiz} />
+              )}
+              {activeTab === "resources" && (
+                <Resources resources={data.resources ?? []} />
+              )}
+            </motion.div>
+          </AnimatePresence>
         </div>
 
         {currentIdx < tabs.length - 1 && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-6 flex justify-end">
-            <button onClick={nextTab}
-              className="gradient-primary text-primary-foreground px-5 py-2.5 rounded-xl font-semibold text-sm inline-flex items-center gap-2 hover:opacity-90 transition-opacity">
-              Continue to {tabs[currentIdx + 1].label} <ChevronRight className="w-4 h-4" />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="mt-6 flex justify-end"
+          >
+            <button
+              onClick={nextTab}
+              className="gradient-primary text-primary-foreground px-5 py-2.5 rounded-xl font-semibold text-sm inline-flex items-center gap-2 hover:opacity-90 transition-opacity"
+            >
+              Continue to {tabs[currentIdx + 1].label}
+              <ChevronRight className="w-4 h-4" />
             </button>
           </motion.div>
         )}
