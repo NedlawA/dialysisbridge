@@ -34,7 +34,7 @@ export const modules: Module[] = [
     abeObjective: "Apply successful approaches to prewriting activities",
     dialysisObjective: "Describe normal homeostasis and symptoms due to loss of homeostasis in chronic kidney disease",
     icon: "⚖️",
-    status: "coming-soon",
+    status: "available",
   },
   {
     id: 4,
