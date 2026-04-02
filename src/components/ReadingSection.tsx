@@ -9,6 +9,7 @@ interface Section {
 const audioMap = {
   module1: ["/audio/module1-1.mp3", "/audio/module1-2.mp3", "/audio/module1-3.mp3"],
   module2: ["/audio/module2-1.mp3"],
+  module3: ["/audio/module3-1.mp3", "/audio/module3-2.mp3"],
 };
 
 /* ---------------------------------------

@@ -44,7 +44,7 @@ const Index = () => {
               <span className="gradient-text">Dialysis Technician</span>
             </h1>
             <p className="text-lg text-navy-foreground/70 leading-relaxed mb-8 max-w-xl">
-              Master kidney anatomy, patient care, and critical thinking through interactive lessons designed for aspiring healthcare professionals.
+            Learn kidney anatomy, patient care, and critical thinking through interactive lessons designed for aspiring healthcare professionals.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link

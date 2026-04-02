@@ -11,7 +11,7 @@ const Modules = () => {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-10">
           <h1 className="font-display text-3xl md:text-4xl font-bold mb-3">Course Modules</h1>
           <p className="text-muted-foreground max-w-2xl">
-            10 integrated modules combining Adult Basic Education literacy skills with dialysis technician competencies.
+            10 integrated modules combining Adult Basic Education literacy skills with dialysis technician foundational knowledge.
           </p>
         </motion.div>
 

@@ -29,8 +29,8 @@ export const modules: Module[] = [
   },
   {
     id: 3,
-    title: "Prewriting & Homeostasis",
-    description: "Practice prewriting activities while understanding homeostasis in CKD.",
+    title: "Homeostasis",
+    description: "Understanding homeostasis and CKD.",
     abeObjective: "Apply successful approaches to prewriting activities",
     dialysisObjective: "Describe normal homeostasis and symptoms due to loss of homeostasis in chronic kidney disease",
     icon: "⚖️",

@@ -1,4 +1,4 @@
-export const moduleHomeostasisReadingContent = {
+export const module3ReadingContent = {
   title: "Homeostasis & Electrolyte Imbalance",
   sections: [
     {
@@ -64,7 +64,7 @@ Understanding how to interpret these texts and recognize their features is essen
   module: "moduleHomeostasis",
 };
 
-export const moduleHomeostasisFillInTheBlanks = [
+export const module3FillInTheBlanks = [
   {
     id: "h1",
     sentence: "Homeostasis refers to the body's ability to maintain a stable ___ environment.",
@@ -79,9 +79,9 @@ export const moduleHomeostasisFillInTheBlanks = [
   },
   {
     id: "h3",
-    sentence: "An imbalance of electrolytes can lead to dangerous ___ arrhythmias.",
-    blank: "cardiac",
-    options: ["cardiac", "respiratory", "digestive", "neurological"],
+    sentence: "An imbalance of electrolytes can lead to dangerous cardiac ___.",
+    blank: "arrhythmias",
+    options: ["arrhythmias", "respiratory", "digestive", "neurological"],
   },
   {
     id: "h4",
@@ -97,7 +97,7 @@ export const moduleHomeostasisFillInTheBlanks = [
   },
 ];
 
-export const moduleHomeostasisVocabularyPairs = [
+export const module3VocabularyPairs = [
   { term: "Homeostasis", definition: "The body's ability to maintain a stable internal environment" },
   { term: "Electrolytes", definition: "Charged minerals that regulate fluid balance, nerve function, and muscle activity" },
   { term: "Hyponatremia", definition: "Low sodium levels in the blood" },
@@ -110,7 +110,7 @@ export const moduleHomeostasisVocabularyPairs = [
   { term: "IV Fluids", definition: "Intravenous solutions used to correct fluid or electrolyte imbalances" },
 ];
 
-export const moduleHomeostasisComprehensionQuestions = [
+export const module3ComprehensionQuestions = [
   {
     id: "hq1",
     question: "Which electrolyte is most closely associated with heart rhythm?",
@@ -152,3 +152,20 @@ export const moduleHomeostasisComprehensionQuestions = [
     explanation: "Electrolyte levels are measured and documented in laboratory reports.",
   },
 ];
+export const module3Resources: Record<
+  number,
+  { title: string; url: string; description?: string }[]
+> = {
+  1: [
+    {
+      title: "Kidney School - Lab Tests",
+      url: "https://kidneyschool.org/m07/",
+      description: "Understanding kidney function and laboratory tests.",
+    },
+    {
+      title: "Cleveland Clinic - Homeostasis",
+      url: "https://my.clevelandclinic.org/health/articles/homeostasis",
+      description: "An article about homeostasis in the human body.",
+    },
+  ],
+};
