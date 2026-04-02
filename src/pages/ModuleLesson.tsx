@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Keyword } from "@/components/Keyword";
 import { BookOpen, Puzzle, Library, ClipboardCheck, ChevronRight, Album } from "lucide-react";
 import Header from "@/components/Header";
 import ReadingSection from "@/components/ReadingSection";
@@ -31,7 +30,8 @@ import {
   module3ReadingContent,
   module3FillInTheBlanks,
   module3VocabularyPairs,
-  module3ComprehensionQuestions
+  module3ComprehensionQuestions,
+  module3Resources,
 } from "@/data/module3Content";
 
 const moduleData: Record<number, {
@@ -59,7 +59,8 @@ const moduleData: Record<number, {
     reading: module3ReadingContent,
     fillBlanks: module3FillInTheBlanks,
     vocab: module3VocabularyPairs,
-    quiz: module3ComprehensionQuestions
+    quiz: module3ComprehensionQuestions,
+    resources: module3Resources[1]
   }
 };
 
