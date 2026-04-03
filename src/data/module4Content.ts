@@ -4,7 +4,7 @@ export const module4readingContent = {
   sections: [
     {
       heading: "Introduction to End Stage Kidney Disease (ESKD)",
-      content: `End Stage Kidney Disease (ESKD) is a severe stage where the kidneys stop functioning sufficiently to maintain life. It marks the final stage of chronic kidney disease (CKD). ESKD requires either dialysis or a kidney transplant for treatment, and it significantly impacts patients’ daily lives in various ways. Treatments can affect daily life as patients need to integrate dialysis sessions into their routines. This typically involves multiple sessions per week in center or at home. For best outcomes, their new schedule requires strict adherence and often limits social activities. Diet restrictions are are another common change that where patients need to manage fluid balance, potassium levels, and phosphate. This can be limiting and challenging for patients.`,
+      content: `End Stage Kidney Disease (ESKD) is a severe stage where the kidneys stop functioning sufficiently to maintain life. It marks the final stage of chronic kidney disease (CKD). ESKD requires either dialysis or a kidney transplant for treatment, and it significantly impacts patients’ daily lives in various ways. Treatments can affect daily life as patients need to integrate dialysis sessions into their routines. This typically involves multiple sessions per week in center or at home. For best outcomes, their new schedule requires strict adherence and often limits social activities. Diet restrictions are are another common change that affect daily life where patients need to manage fluid balance, potassium levels, and phosphate. This can be limiting and challenging for patients.`,
     },
     {
       heading: "Emotional Impact",
@@ -44,28 +44,28 @@ export const module4readingContent = {
 export const module4FillInTheBlanks = [
   {
     id: "fib7",
-    sentence: "ESKD often leads to ____ in patients due to the disease's progression.",
+    sentence: "ESKD often leads to ___ in patients due to the disease's progression.",
     blank: "depression",
     options: ["depression", "anxiety", "stigma", "isolation"],
   },
   
   {
     id: "fib8",
-    sentence: "Partners, family, or friends of ESKD patients often experience _____ stress, impacting their emotional and physical well-being.",
+    sentence: "Partners, family, or friends of ESKD patients often experience ___ stress, impacting their emotional and physical well-being.",
     blank: "caregiver",
     options: ["caregiver", "patient", "financial", "social"],
   },
 
   {
     id: "fib9",
-    sentence: "Patients with ESKD may face ____ challenges in maintaining employment due to health issues.",
+    sentence: "Patients with ESKD may face ___ challenges in maintaining employment due to health issues.",
     blank: "workplace",
     options: ["workplace", "family", "physical", "cognitive"],
   },
 
   {
     id: "fib10",
-    sentence: "Financial assistance programs for patients and caregivers of ESKD often include support from _____ organizations.",
+    sentence: "Financial assistance programs for patients and caregivers of ESKD often include support from ___ organizations.",
     blank: "government and non-profit",
     options: ["private healthcare providers", "charitable foundations", "health insurance companies", "government and non-profit"],
   },
@@ -163,9 +163,9 @@ export const module4Resources = {
       description: "A guide on coping strategies and support for individuals with CKD.",
     },
     {
-      title: "American Cancer Society – Financial Assistance Programs",
-      url: "https://www.cancer.org/treatment/finding-and-paying-for-treatment/financial-assistance.html",
-      description: "Information on financial assistance programs available to cancer patients and their families.",
+      title: "American Kidney Fund – Financial Assistance Programs",
+      url: "https://www.kidneyfund.org/get-assistance",
+      description: "Information on financial assistance programs available to US kidney patients and their families.",
     },
   ],
 };

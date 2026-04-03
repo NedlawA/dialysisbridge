@@ -38,10 +38,10 @@ export const modules: Module[] = [
   },
   {
     id: 4,
-    title: "Evidence & Patient Impact",
-    description: "Locate supporting evidence while exploring how ESRD affects patients.",
+    title: "Patient Impact of ESKD",
+    description: "Locate supporting evidence while exploring how ESKD affects patients.",
     abeObjective: "Locate evidence in a text that supports a claim",
-    dialysisObjective: "Compare how ESRD affects the patient physically, psychologically, socially, and emotionally",
+    dialysisObjective: "Compare how ESKD affects the patient physically, psychologically, socially, and emotionally",
     icon: "💬",
     status: "available",
   },

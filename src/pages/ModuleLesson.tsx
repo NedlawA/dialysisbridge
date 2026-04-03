@@ -73,7 +73,7 @@ const moduleData: Record<number, {
     fillBlanks: module4FillInTheBlanks,
     vocab: module4VocabularyPairs,
     quiz: module4ComprehensionQuestions,
-    resources: module4Resources
+    resources: module4Resources[1]
   }
 };
 
