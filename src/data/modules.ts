@@ -43,7 +43,7 @@ export const modules: Module[] = [
     abeObjective: "Locate evidence in a text that supports a claim",
     dialysisObjective: "Compare how ESRD affects the patient physically, psychologically, socially, and emotionally",
     icon: "💬",
-    status: "coming-soon",
+    status: "available",
   },
   {
     id: 5,

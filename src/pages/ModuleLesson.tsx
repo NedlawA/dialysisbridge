@@ -25,7 +25,6 @@ import {
   module2ComprehensionQuestions
 } from "@/data/module2Content";
 
-// ⭐ NEW: Module 3 imports
 import {
   module3ReadingContent,
   module3FillInTheBlanks,
@@ -33,6 +32,14 @@ import {
   module3ComprehensionQuestions,
   module3Resources,
 } from "@/data/module3Content";
+
+import {
+  module4readingContent,
+  module4FillInTheBlanks,
+  module4VocabularyPairs,
+  module4ComprehensionQuestions,
+  module4Resources,
+} from "@/data/module4Content";
 
 const moduleData: Record<number, {
   reading: { module: string; sections: { heading: string; content: string }[] };
@@ -54,13 +61,19 @@ const moduleData: Record<number, {
     vocab: module2VocabularyPairs,
     quiz: module2ComprehensionQuestions
   },
-  // ⭐ NEW: Module 3 added here
   3: {
     reading: module3ReadingContent,
     fillBlanks: module3FillInTheBlanks,
     vocab: module3VocabularyPairs,
     quiz: module3ComprehensionQuestions,
     resources: module3Resources[1]
+  },
+  4: {
+    reading: module4readingContent,
+    fillBlanks: module4FillInTheBlanks,
+    vocab: module4VocabularyPairs,
+    quiz: module4ComprehensionQuestions,
+    resources: module4Resources
   }
 };
 
