@@ -41,6 +41,14 @@ import {
   module4Resources,
 } from "@/data/module4Content";
 
+import {
+  module9readingContent,
+  module9fillInTheBlanks,
+  module9vocabularyPairs,
+  module9comprehensionQuestions,
+  module9Resources,
+} from "@/data/module4Content";
+
 const moduleData: Record<number, {
   reading: { module: string; sections: { heading: string; content: string }[] };
   fillBlanks: any[];
@@ -74,6 +82,13 @@ const moduleData: Record<number, {
     vocab: module4VocabularyPairs,
     quiz: module4ComprehensionQuestions,
     resources: module4Resources[1]
+  },
+  9: {
+    reading: module9readingContent,
+    fillBlanks: module9fillInTheBlanks,
+    vocab: module9vocabularyPairs,
+    quiz: module9comprehensionQuestions,
+    resources: module9Resources[1]
   }
 };
 
