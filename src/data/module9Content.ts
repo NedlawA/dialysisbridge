@@ -1,4 +1,4 @@
-export const readingContent = {
+export const module9readingContent = {
   title: "Dialysis Blood Tests & The Dialysis Diet: What Technicians Need to Know",
   module: "module2",
   sections: [
@@ -41,7 +41,7 @@ Dialysis technicians play a key role in observing trends, communicating concerns
   ],
 };
 
-export const fillInTheBlanks = [
+export const module9fillInTheBlanks = [
   {
     id: "fib1",
     sentence: "High levels of ___ can cause dangerous heart rhythm problems in dialysis patients.",
@@ -74,7 +74,7 @@ export const fillInTheBlanks = [
   },
 ];
 
-export const vocabularyPairs = [
+export const module9vocabularyPairs = [
   { term: "BUN", definition: "A measure of urea levels in the blood" },
   { term: "Creatinine", definition: "A waste product used to assess kidney function" },
   { term: "Potassium", definition: "An electrolyte that affects heart rhythm" },
@@ -85,7 +85,7 @@ export const vocabularyPairs = [
   { term: "Dialysis Diet", definition: "A specialized eating plan to manage electrolytes and waste buildup" },
 ];
 
-export const comprehensionQuestions = [
+export const module9comprehensionQuestions = [
   {
     id: "q1",
     question: "Which blood test is used to evaluate protein nutrition status in dialysis patients?",
@@ -138,7 +138,7 @@ export const comprehensionQuestions = [
   },
 ];
 
-export const moduleResources = {
+export const module9Resources = {
   2: [
     {
       title: "National Kidney Foundation – Understanding Your Lab Values",
