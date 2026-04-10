@@ -83,12 +83,12 @@ export const modules: Module[] = [
   },
   {
     id: 9,
-    title: "Critical Thinking & Dialysis Blood Tests",
-    description: "Identify the purpose and target ranges for key dialysis blood tests and strengthen critical thinking skills.",
+    title: "Dialysis Blood Tests & Diet",
+    description: "Identify the purpose and target ranges for key dialysis blood tests and understand the effects of diet.",
     abeObjective: "",
     dialysisObjective: "Identify the purpose and target ranges for key dialysis blood tests",
     icon: "🧪",
-    status: "coming-soon",
+    status: "available",
   },
   {
     id: 10,
