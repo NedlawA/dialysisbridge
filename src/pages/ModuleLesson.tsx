@@ -47,7 +47,7 @@ import {
   module9vocabularyPairs,
   module9comprehensionQuestions,
   module9Resources,
-} from "@/data/module4Content";
+} from "@/data/module9Content";
 
 const moduleData: Record<number, {
   reading: { module: string; sections: { heading: string; content: string }[] };
