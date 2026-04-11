@@ -1,6 +1,6 @@
 export const module9readingContent = {
   title: "Dialysis Blood Tests & The Dialysis Diet: What Technicians Need to Know",
-  module: "module2",
+  module: "module9",
   sections: [
     {
       heading: "Why Blood Tests Matter in Dialysis",
