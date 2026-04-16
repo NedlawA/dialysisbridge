@@ -29,7 +29,7 @@ export default function AudioPlayer({ src }: { src: string }) {
       <button
         onClick={togglePlay}
         className="p-2 rounded-md bg-muted hover:bg-muted/70 transition border text-foreground"
-        aria-label="Play audio"
+        aria-label={isPlaying ? "Pause audio" : "Play audio"}
       >
         {isPlaying ? <Pause size={18} /> : <Play size={18} />}
       </button>
@@ -37,6 +37,8 @@ export default function AudioPlayer({ src }: { src: string }) {
       <audio
         ref={audioRef}
         src={src}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
         onEnded={() => setIsPlaying(false)}
       />
     </div>

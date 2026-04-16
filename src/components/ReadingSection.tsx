@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
-import { Play, Volume2 } from "lucide-react";
+import { useState } from "react";
+import { Play, Pause } from "lucide-react";
 import AudioPlayer from "./AudioPlayer";
 import { useTTS } from "../hooks/useTTS";
+import { stopExclusiveAudio } from "@/data/audioController";
 
 interface Section {
   heading: string;
@@ -51,12 +53,52 @@ const ReadingSection = ({
   sections: Section[];
   module: keyof typeof audioMap;
 }) => {
-  const { speak } = useTTS();
+  const { speak, pause, resume, cancel } = useTTS();
+  const [activeTTSIndex, setActiveTTSIndex] = useState<number | null>(null);
+  const [isTTSPaused, setIsTTSPaused] = useState(false);
+
+  const isCurrentTTS = (index: number) => activeTTSIndex === index;
+
+  const handleTTS = (index: number, section: Section) => {
+    if (!window.speechSynthesis) return;
+
+    if (isCurrentTTS(index)) {
+      if (window.speechSynthesis.paused) {
+        resume();
+        setIsTTSPaused(false);
+      } else if (window.speechSynthesis.speaking) {
+        pause();
+        setIsTTSPaused(true);
+      } else {
+        cancel();
+        stopExclusiveAudio();
+        setActiveTTSIndex(index);
+        setIsTTSPaused(false);
+        speak(getSpeechText(section), () => {
+          setActiveTTSIndex((current) => (current === index ? null : current));
+          setIsTTSPaused(false);
+        });
+      }
+      return;
+    }
+
+    stopExclusiveAudio();
+    cancel();
+    setActiveTTSIndex(index);
+    setIsTTSPaused(false);
+
+    speak(getSpeechText(section), () => {
+      setActiveTTSIndex((current) => (current === index ? null : current));
+      setIsTTSPaused(false);
+    });
+  };
 
   return (
     <div className="space-y-8">
       {sections.map((section, i) => {
         const audioSrc = audioMap[module]?.[i];
+        const ttsActive = isCurrentTTS(i);
+        const ttsPlaying = ttsActive && !isTTSPaused && window.speechSynthesis?.speaking;
 
         return (
           <motion.div
@@ -78,12 +120,11 @@ const ReadingSection = ({
               ) : (
                 <button
                   type="button"
-                  onClick={() => speak(getSpeechText(section))}
+                  onClick={() => handleTTS(i, section)}
                   className="inline-flex items-center gap-2 p-2 rounded-md bg-muted hover:bg-muted/70 transition border text-foreground"
-                  aria-label="Read section aloud"
+                  aria-label={ttsPlaying ? "Pause speech" : "Play speech"}
                 >
-                  <Play size={14} />
-                  
+                  {ttsPlaying ? <Pause size={14} /> : <Play size={14} />}
                 </button>
               )}
             </div>
