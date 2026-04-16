@@ -1,4 +1,4 @@
-export const module10readingContent = {
+export const module10ReadingContent = {
   title: "Vascular Access",
   module: "module 10",
   sections: [
@@ -32,57 +32,57 @@ export const module10readingContent = {
 },
   ],
 };
-export const module10fillInTheBlanks = [
+export const module10FillInTheBlanks = [
   {
-    id: "fib1",
+    id: "m10fib1",
     sentence: "The three main types of vascular access are the AV fistula, the AV graft, and the ___.",
     blank: "central venous catheter",
     options: ["central venous catheter", "artery", "dialyzer", "blood pump"],
   },
   {
-    id: "fib2",
+    id: "m10fib2",
     sentence: "An AV fistula is created by connecting an ___ directly to a vein.",
     blank: "artery",
     options: ["artery", "catheter", "graft", "needle"],
   },
   {
-    id: "fib3",
+    id: "m10fib3",
     sentence: "The AV fistula is the ___ type of access because it has the lowest risk of infection.",
     blank: "preferred",
     options: ["preferred", "temporary", "weakest", "slowest"],
   },
   {
-    id: "fib4",
+    id: "m10fib4",
     sentence: "An AV graft uses a soft, flexible ___ placed under the skin.",
     blank: "tube",
     options: ["tube", "needle", "clamp", "filter"],
   },
   {
-    id: "fib5",
+    id: "m10fib5",
     sentence: "Compared with a fistula, an AV graft has a higher chance of ___ or infection.",
     blank: "clotting",
     options: ["clotting", "maturing", "healing", "measuring"],
   },
   {
-    id: "fib6",
+    id: "m10fib6",
     sentence: "A central venous catheter is placed into a large ___, usually in the neck or chest.",
     blank: "vein",
     options: ["vein", "artery", "fistula", "graft"],
   },
   {
-    id: "fib7",
+    id: "m10fib7",
     sentence: "Catheters allow ___ access for dialysis but have the highest risk of infection.",
     blank: "immediate",
     options: ["immediate", "delayed", "limited", "slow"],
   },
   {
-    id: "fib8",
+    id: "m10fib8",
     sentence: "A catheter is considered a ___ option until a fistula or graft is ready.",
     blank: "temporary",
     options: ["temporary", "permanent", "preferred", "surgical"],
   },
 ];
-export const module10vocabularyPairs = [
+export const module10VocabularyPairs = [
   { term: "Cannulation", definition: "The process of inserting a cannula into a blood vessel" },
   { term: "Rope Ladder Technique", definition: "A method where a new sites are created for each dialysis session" },
   { term: "Arteriovenous Fistula (AVF)", definition: "A direct connection between an artery and a vein" },
@@ -97,7 +97,7 @@ export const module10vocabularyPairs = [
   { term: "Stenosis", definition: "Narrowing of a blood vessel" },
 ];
 
-export const module10comprehensionQuestions = [
+export const module10ComprehensionQuestions = [
   {
     id: "q1",
     question: "Which type of vascular access is considered the preferred option for most patients?",

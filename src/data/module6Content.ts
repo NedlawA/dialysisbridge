@@ -1,4 +1,4 @@
-export const module6readingContent = {
+export const module6ReadingContent = {
   title: "Proofreading and Accurate Charting as a Dialysis Patient Care Technician",
   sections: [
     {

@@ -1,4 +1,4 @@
-export const readingContent = {
+export const module1ReadingContent = {
   title: "The Kidneys: Structure, Function & the Cardiovascular Connection",
   module: "module1",
   sections: [
@@ -30,40 +30,40 @@ Understanding this kidney-heart connection is critical for dialysis technicians,
   ],
 };
 
-export const fillInTheBlanks = [
+export const module1FillInTheBlanks = [
   {
-    id: "fib1",
+    id: "m1fib1",
     sentence: "Each kidney contains approximately one million tiny filtering units called ___.",
     blank: "nephrons",
     options: ["nephrons", "neurons", "neutrons", "nuclei"],
   },
   {
-    id: "fib2",
+    id: "m1fib2",
     sentence: "The ___ is a cluster of tiny blood vessels inside the nephron where filtration begins.",
     blank: "glomerulus",
     options: ["glomerulus", "tubule", "cortex", "medulla"],
   },
   {
-    id: "fib3",
+    id: "m1fib3",
     sentence: "The kidneys produce ___, a hormone that stimulates red blood cell production.",
     blank: "erythropoietin",
     options: ["erythropoietin", "insulin", "adrenaline", "melatonin"],
   },
   {
-    id: "fib4",
+    id: "m1fib4",
     sentence: "The heart pumps about ___% of its cardiac output to the kidneys through the renal arteries.",
     blank: "20-25",
     options: ["20-25", "5-10", "50-60", "40-45"],
   },
   {
-    id: "fib5",
+    id: "m1fib5",
     sentence: "The kidneys help control blood pressure through the ___-angiotensin-aldosterone system.",
     blank: "renin",
     options: ["renin", "pepsin", "trypsin", "lipase"],
   },
 ];
 
-export const vocabularyPairs = [
+export const module1VocabularyPairs = [
   { term: "Nephron", definition: "The functional filtering unit of the kidney" },
   { term: "Glomerulus", definition: "A cluster of tiny blood vessels where blood filtration begins" },
   { term: "Erythropoietin", definition: "A hormone that stimulates red blood cell production" },
@@ -74,7 +74,7 @@ export const vocabularyPairs = [
   { term: "Electrolytes", definition: "Minerals like sodium and potassium that carry electrical charges" },
 ];
 
-export const comprehensionQuestions = [
+export const module1ComprehensionQuestions = [
   {
     id: "q1",
     question: "Which of the following is NOT a function of the kidneys?",
@@ -132,7 +132,7 @@ export const comprehensionQuestions = [
   },
 ];
 
-export const moduleResources: Record<
+export const module1Resources: Record<
   number,
   { title: string; url: string; description?: string }[]
 > = {

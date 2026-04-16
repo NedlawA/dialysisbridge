@@ -11,11 +11,11 @@ import Resources from "@/components/Resources";
 import { modules } from "@/data/modules";
 
 import {
-  readingContent,
-  fillInTheBlanks,
-  vocabularyPairs,
-  comprehensionQuestions,
-  moduleResources
+  module1ReadingContent,
+  module1FillInTheBlanks,
+  module1VocabularyPairs,
+  module1ComprehensionQuestions,
+  module1Resources
 } from "@/data/module1Content";
 
 import {
@@ -34,7 +34,7 @@ import {
 } from "@/data/module3Content";
 
 import {
-  module4readingContent,
+  module4ReadingContent,
   module4FillInTheBlanks,
   module4VocabularyPairs,
   module4ComprehensionQuestions,
@@ -50,7 +50,7 @@ import {
 } from "@/data/module5Content";
 
 import {
-  module6readingContent,
+  module6ReadingContent,
   module6FillInTheBlanks,
   module6VocabularyPairs,
   module6ComprehensionQuestions,
@@ -58,18 +58,18 @@ import {
 } from "@/data/module6Content";
 
 import {
-  module9readingContent,
-  module9fillInTheBlanks,
-  module9vocabularyPairs,
-  module9comprehensionQuestions,
+  module9ReadingContent,
+  module9FillInTheBlanks,
+  module9VocabularyPairs,
+  module9ComprehensionQuestions,
   module9Resources,
 } from "@/data/module9Content";
 
 import {
-  module10readingContent,
-  module10fillInTheBlanks,
-  module10vocabularyPairs,
-  module10comprehensionQuestions,
+  module10ReadingContent,
+  module10FillInTheBlanks,
+  module10VocabularyPairs,
+  module10ComprehensionQuestions,
   module10Resources,
 } from "@/data/module10Content";
 
@@ -81,11 +81,11 @@ const moduleData: Record<number, {
   resources?: any[];
 }> = {
   1: {
-    reading: readingContent,
-    fillBlanks: fillInTheBlanks,
-    vocab: vocabularyPairs,
-    quiz: comprehensionQuestions,
-    resources: moduleResources[1]
+    reading: module1ReadingContent,
+    fillBlanks: module1FillInTheBlanks,
+    vocab: module1VocabularyPairs,
+    quiz: module1ComprehensionQuestions,
+    resources: module1Resources[1]
   },
   2: {
     reading: module2ReadingContent,
@@ -101,7 +101,7 @@ const moduleData: Record<number, {
     resources: module3Resources[1]
   },
   4: {
-    reading: module4readingContent,
+    reading: module4ReadingContent,
     fillBlanks: module4FillInTheBlanks,
     vocab: module4VocabularyPairs,
     quiz: module4ComprehensionQuestions,
@@ -115,24 +115,24 @@ const moduleData: Record<number, {
     resources: module5Resources[1]
   },
   6: {
-    reading: module6readingContent,
+    reading: module6ReadingContent,
     fillBlanks: module6FillInTheBlanks,
     vocab: module6VocabularyPairs,
     quiz: module6ComprehensionQuestions,
     resources: module6Resources[1]
   },
   9: {
-    reading: module9readingContent,
-    fillBlanks: module9fillInTheBlanks,
-    vocab: module9vocabularyPairs,
-    quiz: module9comprehensionQuestions,
+    reading: module9ReadingContent,
+    fillBlanks: module9FillInTheBlanks,
+    vocab: module9VocabularyPairs,
+    quiz: module9ComprehensionQuestions,
     resources: module9Resources[1]
   },
   10: {
-    reading: module10readingContent,
-    fillBlanks: module10fillInTheBlanks,
-    vocab: module10vocabularyPairs,
-    quiz: module10comprehensionQuestions,
+    reading: module10ReadingContent,
+    fillBlanks: module10FillInTheBlanks,
+    vocab: module10VocabularyPairs,
+    quiz: module10ComprehensionQuestions,
     resources: module10Resources[1]
   }
 };

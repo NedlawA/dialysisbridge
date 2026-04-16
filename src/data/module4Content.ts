@@ -1,4 +1,4 @@
-export const module4readingContent = {
+export const module4ReadingContent = {
   title: "Impact of ESKD on Patients’ Emotional, Social, and Financial Lives",
   module: "module4",
   sections: [
@@ -43,35 +43,35 @@ export const module4readingContent = {
 
 export const module4FillInTheBlanks = [
   {
-    id: "fib7",
+    id: "m4fib1",
     sentence: "ESKD often leads to ___ in patients due to the disease's progression.",
     blank: "depression",
     options: ["depression", "anxiety", "stigma", "isolation"],
   },
   
   {
-    id: "fib8",
+    id: "m4fib2",
     sentence: "Partners, family, or friends of ESKD patients often experience ___ stress, impacting their emotional and physical well-being.",
     blank: "caregiver",
     options: ["caregiver", "patient", "financial", "social"],
   },
 
   {
-    id: "fib9",
+    id: "m4fib3",
     sentence: "Patients with ESKD may face ___ challenges in maintaining employment due to health issues.",
     blank: "workplace",
     options: ["workplace", "family", "physical", "cognitive"],
   },
 
   {
-    id: "fib10",
+    id: "m4fib4",
     sentence: "Financial assistance programs for patients and caregivers of ESKD often include support from ___ organizations.",
     blank: "government and non-profit",
     options: ["private healthcare providers", "charitable foundations", "health insurance companies", "government and non-profit"],
   },
 
  {
-    id: "fib6",
+    id: "m4fib5",
     sentence: "Patients with ESKD often experience profound ___, leading to feelings of hopelessness and despair.",
     blank: "emotional distress",
     options: ["emotional distress", "physical discomfort", "social isolation", "financial strain"],

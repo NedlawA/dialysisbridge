@@ -66,31 +66,31 @@ Understanding how to interpret these texts and recognize their features is essen
 
 export const module3FillInTheBlanks = [
   {
-    id: "h1",
+    id: "m3fib1",
     sentence: "Homeostasis refers to the body's ability to maintain a stable ___ environment.",
     blank: "internal",
     options: ["internal", "external", "chemical", "random"],
   },
   {
-    id: "h2",
+    id: "m3fib2",
     sentence: "Potassium is essential for proper ___ function and muscle contraction.",
     blank: "heart",
     options: ["heart", "lung", "skin", "digestive"],
   },
   {
-    id: "h3",
+    id: "m3fib3",
     sentence: "An imbalance of electrolytes can lead to dangerous cardiac ___.",
     blank: "arrhythmias",
     options: ["arrhythmias", "respiratory", "digestive", "neurological"],
   },
   {
-    id: "h4",
+    id: "m3fib4",
     sentence: "Low sodium levels in the blood are known as ___.",
     blank: "hyponatremia",
     options: ["hyponatremia", "hyperkalemia", "hypocalcemia", "hypermagnesemia"],
   },
   {
-    id: "h5",
+    id: "m3fib5",
     sentence: "The kidneys play a major role in regulating ___.",
     blank: "electrolytes",
     options: ["electrolytes", "hormones", "enzymes", "vitamins"],

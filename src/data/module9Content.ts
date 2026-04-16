@@ -1,4 +1,4 @@
-export const module9readingContent = {
+export const module9ReadingContent = {
   title: "Dialysis Blood Tests & The Dialysis Diet: What Technicians Need to Know",
   module: "module9",
   sections: [
@@ -41,40 +41,40 @@ Dialysis technicians play a key role in observing trends, communicating concerns
   ],
 };
 
-export const module9fillInTheBlanks = [
+export const module9FillInTheBlanks = [
   {
-    id: "fib1",
+    id: "m9fib1",
     sentence: "High levels of ___ can cause dangerous heart rhythm problems in dialysis patients.",
     blank: "potassium",
     options: ["potassium", "sodium", "calcium", "glucose"],
   },
   {
-    id: "fib2",
+    id: "m9fib2",
     sentence: "___ is a waste product measured in the blood to assess kidney function and dialysis adequacy.",
     blank: "creatinine",
     options: ["creatinine", "insulin", "hemoglobin", "albumin"],
   },
   {
-    id: "fib3",
+    id: "m9fib3",
     sentence: "The dialysis diet often limits foods high in ___, such as dairy and nuts.",
     blank: "phosphorus",
     options: ["phosphorus", "iron", "vitamin C", "fiber"],
   },
   {
-    id: "fib4",
+    id: "m9fib4",
     sentence: "Low levels of ___ may indicate poor nutrition or inflammation.",
     blank: "albumin",
     options: ["albumin", "potassium", "urea", "phosphate"],
   },
   {
-    id: "fib5",
+    id: "m9fib5",
     sentence: "Dialysis patients must monitor their ___ intake to prevent fluid overload.",
     blank: "fluid",
     options: ["fluid", "protein", "sugar", "fiber"],
   },
 ];
 
-export const module9vocabularyPairs = [
+export const module9VocabularyPairs = [
   { term: "BUN", definition: "A measure of urea levels in the blood" },
   { term: "Creatinine", definition: "A waste product used to assess kidney function" },
   { term: "Potassium", definition: "An electrolyte that affects heart rhythm" },
@@ -85,7 +85,7 @@ export const module9vocabularyPairs = [
   { term: "Dialysis Diet", definition: "A specialized eating plan to manage electrolytes and waste buildup" },
 ];
 
-export const module9comprehensionQuestions = [
+export const module9ComprehensionQuestions = [
   {
     id: "q1",
     question: "Which blood test can beused to evaluate inflammation in dialysis patients?",
