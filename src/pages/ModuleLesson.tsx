@@ -42,12 +42,36 @@ import {
 } from "@/data/module4Content";
 
 import {
+  module5ReadingContent,
+  module5FillInTheBlanks,
+  module5VocabularyPairs,
+  module5ComprehensionQuestions,
+  module5Resources
+} from "@/data/module5Content";
+
+import {
+  module6readingContent,
+  module6FillInTheBlanks,
+  module6VocabularyPairs,
+  module6ComprehensionQuestions,
+  module6Resources
+} from "@/data/module6Content";
+
+import {
   module9readingContent,
   module9fillInTheBlanks,
   module9vocabularyPairs,
   module9comprehensionQuestions,
   module9Resources,
 } from "@/data/module9Content";
+
+import {
+  module10readingContent,
+  module10fillInTheBlanks,
+  module10vocabularyPairs,
+  module10comprehensionQuestions,
+  module10Resources,
+} from "@/data/module10Content";
 
 const moduleData: Record<number, {
   reading: { module: string; sections: { heading: string; content: string }[] };
@@ -83,12 +107,33 @@ const moduleData: Record<number, {
     quiz: module4ComprehensionQuestions,
     resources: module4Resources[1]
   },
+    5: {
+    reading: module5ReadingContent,
+    fillBlanks: module5FillInTheBlanks,
+    vocab: module5VocabularyPairs,
+    quiz: module5ComprehensionQuestions,
+    resources: module5Resources[1]
+  },
+  6: {
+    reading: module6readingContent,
+    fillBlanks: module6FillInTheBlanks,
+    vocab: module6VocabularyPairs,
+    quiz: module6ComprehensionQuestions,
+    resources: module6Resources[1]
+  },
   9: {
     reading: module9readingContent,
     fillBlanks: module9fillInTheBlanks,
     vocab: module9vocabularyPairs,
     quiz: module9comprehensionQuestions,
     resources: module9Resources[1]
+  },
+  10: {
+    reading: module10readingContent,
+    fillBlanks: module10fillInTheBlanks,
+    vocab: module10vocabularyPairs,
+    quiz: module10comprehensionQuestions,
+    resources: module10Resources[1]
   }
 };
 

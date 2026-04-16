@@ -12,7 +12,7 @@ Key blood tests include:
 - **Potassium**: High levels can cause dangerous heart rhythm problems.
 - **Phosphorus**: Often elevated in kidney failure and linked to bone and heart complications.
 - **Hemoglobin**: Indicates anemia, which is common in dialysis patients.
-- **Albumin**: A marker of nutrition and inflammation.
+- **Albumin**: Formerly seen as a marker for malnutrition, but now recognized as a marker of acute illness and inflammation.
 
 These tests guide treatment decisions, including dialysis adequacy, medication adjustments, and dietary recommendations.`,
     },
@@ -88,10 +88,10 @@ export const module9vocabularyPairs = [
 export const module9comprehensionQuestions = [
   {
     id: "q1",
-    question: "Which blood test is used to evaluate protein nutrition status in dialysis patients?",
+    question: "Which blood test can beused to evaluate inflammation in dialysis patients?",
     options: ["Albumin", "Potassium", "Creatinine", "BUN"],
     correctIndex: 0,
-    explanation: "Albumin reflects nutritional status and inflammation, making it a key marker in dialysis care.",
+    explanation: "Albumin reflects accute illness and inflammation, making it a key marker in dialysis care.",
   },
   {
     id: "q2",
@@ -139,10 +139,10 @@ export const module9comprehensionQuestions = [
 ];
 
 export const module9Resources = {
-  2: [
+  1: [
     {
       title: "National Kidney Foundation – Understanding Your Lab Values",
-      url: "https://www.kidney.org/kidney-topics/understanding-your-lab-values",
+      url: "https://www.kidney.org/kidney-topics/understanding-your-lab-values-and-other-ckd-health-numbers",
       description: "A patient-friendly guide to common blood tests used in kidney disease and dialysis.",
     },
     {

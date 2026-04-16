@@ -18,6 +18,18 @@ export const module10readingContent = {
       heading: "Central Venous Catheter",
       content: `A central venous catheter is a plastic tube placed into a large vein, usually in the neck or chest. Catheters allow immediate access for dialysis, but they carry the highest risk of infection and other complications. Because of these risks, catheters are considered a temporary option until a fistula or graft is ready.`,
     },
+    {
+  heading: "Assessment and Cannulation",
+  content: `Dialysis technicians are responsible for assessing the vascular access before each treatment. This includes checking for a thrill (a vibration felt over the access) and a bruit (a whooshing sound heard with a stethoscope). Proper cannulation technique is essential to prevent damage to the access and ensure effective dialysis. The rope ladder technique, where new sites are used for each session, can help prolong the life of the access. Alternatively, the buttonhole technique uses the same site for each session, which can reduce pain but may increase infection risk. Regular monitoring and care can help maintain access function and improve patient outcomes.`,
+},
+    {
+      heading: "Caring for a Vascular Access",
+      content: `Proper care of vascular access is crucial to prevent complications. Patients should be instructed to:
+- Keep the access site clean and dry.
+- Avoid heavy lifting or pressure on the access arm.
+- Monitor for signs of infection, such as redness, swelling, or discharge.
+- Report any changes in the access, such as decreased blood flow or pain, to their healthcare provider immediately.`,
+},
   ],
 };
 export const module10fillInTheBlanks = [
@@ -70,6 +82,21 @@ export const module10fillInTheBlanks = [
     options: ["temporary", "permanent", "preferred", "surgical"],
   },
 ];
+export const module10vocabularyPairs = [
+  { term: "Cannulation", definition: "The process of inserting a cannula into a blood vessel" },
+  { term: "Rope Ladder Technique", definition: "A method where a new sites are created for each dialysis session" },
+  { term: "Arteriovenous Fistula (AVF)", definition: "A direct connection between an artery and a vein" },
+  { term: "Venous Access Device", definition: "Any device used for access to veins, such as catheters or grafts" },
+  { term: "Arteriovenous Graft (AVG)", definition: "A synthetic tube used to connect a vein and an artery" },
+  { term: "Buttonhole Technique", definition: "A method where the same sites is used for each dialysis session" },
+  { term: "Bruit", definition: "A whooshing sound heard over a vascular access site" },
+  { term: "Endovascular AVF", definition: "A type of AVF that is created through a minimally invasive procedure" },
+  { term: "Thrombosis", definition: "The formation of a blood clot in a graft or fistula" },
+  { term: "Aneurysm", definition: "An abnormal bulging or ballooning of a blood vessel wall" },
+  { term: "Palpate", definition: "To feel or touch a body part to assess its condition" },
+  { term: "Stenosis", definition: "Narrowing of a blood vessel" },
+];
+
 export const module10comprehensionQuestions = [
   {
     id: "q1",
@@ -123,20 +150,20 @@ export const module10comprehensionQuestions = [
   },
 ];
 export const module10Resources = {
-  10: [
+  1: [
     {
       title: "National Kidney Foundation – Vascular Access for Hemodialysis",
-      url: "https://www.kidney.org/kidney-topics/vascular-access-hemodialysis",
+      url: "https://www.kidney.org/kidney-topics/hemodialysis-access",
       description: "Clear explanations of fistulas, grafts, and catheters, including how each access works and how to care for them.",
     },
     {
       title: "DaVita – Understanding Your Vascular Access",
-      url: "https://www.davita.com/treatment-services/hemodialysis/vascular-access",
+      url: "https://davita.com/treatment-options/articles/planning-for-a-vascular-access/",
       description: "Patient-friendly information on access types, benefits, risks, and everyday care tips.",
     },
     {
       title: "CDC – Hemodialysis Safety: Catheter Care",
-      url: "https://www.cdc.gov/dialysis/patient/index.html",
+      url: "https://www.cdc.gov/dialysis-safety/about/",
       description: "Guidance on preventing infections and staying safe when using a central venous catheter.",
     },
   ],

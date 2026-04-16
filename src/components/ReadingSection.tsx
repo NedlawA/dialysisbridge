@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
+import { Play, Volume2 } from "lucide-react";
 import AudioPlayer from "./AudioPlayer";
+import { useTTS } from "../hooks/useTTS";
 
 interface Section {
   heading: string;
@@ -30,6 +32,15 @@ function formatText(text: string) {
   });
 }
 
+function getSpeechText(section: Section) {
+  return `${section.heading}. ${section.content}`
+    .replace(/\*\*(.*?)\*\*/g, "$1")
+    .replace(/•/g, "")
+    .replace(/\n+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 /* ---------------------------------------
    Component
 ---------------------------------------- */
@@ -40,6 +51,8 @@ const ReadingSection = ({
   sections: Section[];
   module: keyof typeof audioMap;
 }) => {
+  const { speak } = useTTS();
+
   return (
     <div className="space-y-8">
       {sections.map((section, i) => {
@@ -60,7 +73,19 @@ const ReadingSection = ({
                 {section.heading}
               </h3>
 
-              {audioSrc && <AudioPlayer src={audioSrc} />}
+              {audioSrc ? (
+                <AudioPlayer src={audioSrc} />
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => speak(getSpeechText(section))}
+                  className="inline-flex items-center gap-2 p-2 rounded-md bg-muted hover:bg-muted/70 transition border text-foreground"
+                  aria-label="Read section aloud"
+                >
+                  <Play size={14} />
+                  
+                </button>
+              )}
             </div>
 
             {/* Content */}
